@@ -1,0 +1,76 @@
+{
+  "categories": [
+    { "slug": "tech",     "title": "Tech Designer",     "role": "tech" },
+    { "slug": "graphic",  "title": "Graphic Designer",  "role": "graphic" },
+    { "slug": "anything", "title": "Anything",          "role": "anything" }
+  ],
+  "projects": [
+    {
+      "slug": "wehearyou",
+      "title": "We Hear You",
+      "category": "tech",
+      "num": 2025,
+      "label": "Unity",
+      "media": [{ "type": "video", "src": "./media/wehearyou_thumbnail.mp4", "alt": "We Hear You" }]
+    },
+    {
+      "slug": "ancillary-post",
+      "title": "Ancillary Post",
+      "category": "tech",
+      "num": 19,
+      "label": "DIA",
+      "media": [{ "type": "image", "src": "/media/ancillary.jpg" }]
+    },
+
+
+
+
+
+
+
+    
+    {
+  "slug": "greatest-dreamer",
+  "title": "I am the Greatest Dreamer",
+  "category": "graphic",
+  "num": 2024,
+  "label": "Typography",
+  "media": [{ "type": "image", "src": "./media/graphicdesign/posterDreamer/finalLandscape.jpg", "alt": "Poster I — Cloud Typography" }]
+},
+
+    {
+  "slug": "book-indo",
+  "title": "Book Design: Indonesia",
+  "category": "graphic",
+  "num": 2024,
+  "label": "Book Design",
+  "media": [
+    { "type": "image", "src": "/media/graphicdesign/bookIndo/mock-01-front.png", "alt": "Wonder of Indonesia cover" }
+  ]
+},
+    {
+      "slug": "publication-lab",
+      "title": "Publication Lab",
+      "category": "graphic",
+      "num": 2023,
+      "label": "Editorial",
+      "media": [{ "type": "image", "src": "/media/graphic/publication-lab.jpg", "alt": "Editorial prototype" }]
+    },
+
+
+
+
+
+    
+
+  
+    {
+      "slug": "generative-garden",
+      "title": "Generative Garden",
+      "category": "anything",
+      "num": 2024,
+      "label": "Creative Code",
+      "media": [{ "type": "video", "src": "/media/anything/generative-garden.mp4", "alt": "Generative flowers" }]
+    }
+  ]
+}
