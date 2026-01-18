@@ -1,90 +1,112 @@
+// src/components/DescriptionProject1.jsx
 import React from "react";
 
-function Section({ title, html, bullets }) {
+function BulletList({ bullets }) {
+  if (!Array.isArray(bullets) || !bullets.length) return null;
+
   return (
-    <section className="proj-desc-section">
-      {title ? <h3 className="proj-minihead">{title}</h3> : null}
+    <ul className="proj-bullets">
+      {bullets.map((b, i) => {
+        if (typeof b === "string") return <li key={i}>{b}</li>;
+        return (
+          <li key={i}>
+            {b.label ? <strong>{b.label} </strong> : null}
+            {b.text || ""}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 
-      {html ? (
-        <p
-          className="proj-desc"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      ) : null}
+function Links({ links }) {
+  if (!Array.isArray(links) || !links.length) return null;
 
-      {Array.isArray(bullets) && bullets.length > 0 ? (
-        <ul className="proj-bullets">
-          {bullets.map((b, idx) => (
-            <li key={idx}>
-              {b?.label ? <strong>{b.label}</strong> : null}{" "}
-              {b?.text || ""}
-            </li>
+  return (
+    <ul className="proj-references">
+      {links.map((l) => (
+        <li key={l.href}>
+          <a href={l.href} target="_blank" rel="noreferrer">
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Table({ table }) {
+  if (!table?.headers?.length || !table?.rows?.length) return null;
+
+  return (
+    <table className="proj-table">
+      <thead>
+        <tr>
+          {table.headers.map((h) => (
+            <th key={h}>{h}</th>
           ))}
-        </ul>
-      ) : null}
-    </section>
+        </tr>
+      </thead>
+      <tbody>
+        {table.rows.map((r, i) => (
+          <tr key={i}>
+            {r.map((c, j) => (
+              <td key={j}>{c}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
 
-function Poster({ src, alt, caption }) {
-  return (
-    <figure className="proj-poster">
-      <img className="proj-poster__img" src={src} alt={alt || ""} loading="lazy" />
-      {caption ? <figcaption className="proj-caption">{caption}</figcaption> : null}
-    </figure>
-  );
-}
-
-export default function DescriptionProject1({ left, right }) {
-  const leftIsObj = left && typeof left === "object";
-  const rightIsObj = right && typeof right === "object";
+function RenderSection({ s }) {
+  if (!s) return null;
 
   return (
-    <div className="proj-row5">
-      {/* LEFT COLUMN */}
-      <div className="proj-col">
-        {!leftIsObj ? (
-          <p className="proj-text">{left || ""}</p>
-        ) : (
-          <>
-            {left.sections?.map((s, i) => (
-              <Section key={i} title={s.title} html={s.html} bullets={s.bullets} />
-            ))}
+    <div className="proj-desc-section">
+      {s.title ? <h3 className="proj-minihead">{s.title}</h3> : null}
 
-            {Array.isArray(left.posters) && left.posters.length > 0 ? (
-              <div className="proj-subposters">
-                {left.posters.map((p, i) => (
-                  <Poster key={i} src={p.src} alt={p.alt} caption={p.caption} />
-                ))}
-              </div>
-            ) : null}
-          </>
-        )}
-      </div>
+      {typeof s.html === "string" ? <p className="proj-desc" dangerouslySetInnerHTML={{ __html: s.html }} /> : null}
 
-      {/* RIGHT COLUMN */}
-      <div className="proj-col">
-        {!rightIsObj ? (
-          <p className="proj-text">{right || ""}</p>
-        ) : (
-          <>
-            {right.poster ? (
-              <div className="proj-mainposter">
-                <Poster
-                  src={right.poster.src}
-                  alt={right.poster.alt}
-                  caption={right.poster.caption}
-                />
-              </div>
-            ) : null}
+      {Array.isArray(s.paragraphs)
+        ? s.paragraphs.map((p, i) => (
+            <p key={i} className="proj-desc">
+              {p}
+            </p>
+          ))
+        : null}
 
-            {/* optional extra sections on right, if you ever want */}
-            {right.sections?.map((s, i) => (
-              <Section key={i} title={s.title} html={s.html} bullets={s.bullets} />
-            ))}
-          </>
-        )}
-      </div>
+      <BulletList bullets={s.bullets} />
+      <Table table={s.table} />
+      <Links links={s.links} />
     </div>
   );
+}
+
+export default function DescriptionProject1({ data }) {
+  if (!data) return null;
+
+  // If it is a simple string, render as paragraph
+  if (typeof data === "string") return <p className="proj-desc">{data}</p>;
+
+  // If it has sections, render them
+  if (Array.isArray(data.sections)) {
+    return (
+      <div>
+        {data.title ? <h3 className="proj-minihead">{data.title}</h3> : null}
+        {data.paragraphs?.map((p, i) => (
+          <p key={i} className="proj-desc">
+            {p}
+          </p>
+        ))}
+        {data.sections.map((s, i) => (
+          <RenderSection key={i} s={s} />
+        ))}
+      </div>
+    );
+  }
+
+  // Otherwise treat it as a single section object
+  return <RenderSection s={data} />;
 }

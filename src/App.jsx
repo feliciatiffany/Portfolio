@@ -1,7 +1,6 @@
 // src/App.jsx
 import React from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 import Home from "./pages/Home.jsx";
 import TechDesigner from "./pages/TechDesigner.jsx";
@@ -9,7 +8,7 @@ import GraphicDesigner from "./pages/GraphicDesigner.jsx";
 import Anything from "./pages/Anything.jsx";
 import About from "./pages/About.jsx";
 import Category from "./pages/Category.jsx";
-import Project from "./pages/Project.jsx"; // ✅ project detail page
+import Project from "./pages/Project.jsx"; 
 
 import LogoUrl from "./assets/logosmall.png";
 

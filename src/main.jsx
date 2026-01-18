@@ -5,11 +5,12 @@ import App from "./App.jsx";
 import "@fontsource-variable/inter";   
 import "./style/style.css";
 import "./style/resumeStyle.css";
+import "./style/projectStyle.css";
 
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>
   </React.StrictMode>

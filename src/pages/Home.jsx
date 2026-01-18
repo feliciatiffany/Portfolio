@@ -54,8 +54,7 @@ export default function Home() {
      
 
       <p className="kicker" style={{ maxWidth: 880 }}>
-        Also: Adidas London, Adidas Soccer, Apple, Audi, A-Trak, Balenciaga, Beefeater,
-        Louis Vuitton, MoMA, Nike Adapt, Nike React, Pinterest, Space10
+        When I’m not designing, I’m traveling, going to concerts, or exploring life's side quests. Ghibli and matcha are also my small obsessions. Nice to meet you!
       </p>
     </section>
   );

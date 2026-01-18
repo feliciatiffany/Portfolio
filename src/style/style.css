@@ -314,6 +314,7 @@ body{
 .thumb:focus{
   transform: scale(var(--zoom));
   z-index: 9999;
+  
   box-shadow: 0 14px 44px rgba(0,0,0,.28);
   filter: saturate(1.05) contrast(1.03);
 }

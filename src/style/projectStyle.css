@@ -2,33 +2,24 @@
 /* Project Template CSS — fully scoped, won't overwrite other pages */
 
 .project-template{
-  /* ===== Palette (your tokens) ===== */
   --salmon:#DE826D;
   --cream:#F3E0D1;
   --peach:#E8B19D;
   --mauve:#A06069;
   --maroon:#62232D;
 
-  --band-salmon:#DE826D22;
-  --band-peach:#E8B19D22;
-  --band-mauve:#A0606922;
-  --band-maroon:#62232D22;
-
-  --ink:#000;
-
-  /* ===== Mock-like solid bands (nav) ===== */
   --band-about: #D56A6A;
   --band-tech:  #FF8E86;
   --band-graph: #F2B3A5;
   --band-other: #F6D2CC;
 
-  /* darker hover bands */
   --band-about-h: #B8565F;
   --band-tech-h:  #E26E63;
   --band-graph-h: #D99689;
   --band-other-h: #E9B7AF;
 
-  /* sticky bar sizes (easy to tune) */
+  --ink:#000;
+
   --proj-head-h: 56px;
   --proj-nav-h:  40px;
 
@@ -41,7 +32,7 @@
   box-sizing: border-box;
 }
 
-/* ========= ROW 1: HEADER (sticky, shorter) ========= */
+/* ========= ROW 1: HEADER ========= */
 .project-template .proj-head{
   position: sticky;
   top: 0;
@@ -86,7 +77,6 @@
   align-items: center;
 
   padding: 0 16px;
-
   justify-self: start;
 
   font-size: clamp(16px, 1.6vw, 22px);
@@ -96,7 +86,7 @@
   border-left: 1px solid rgba(0,0,0,0.08);
 }
 
-/* ========= ROW 2: NAV (sticky under header, no resize on hover) ========= */
+/* ========= ROW 2: NAV ========= */
 .project-template .proj-nav{
   position: sticky;
   top: var(--proj-head-h);
@@ -117,8 +107,9 @@
   display: grid;
   place-items: center;
 
-  padding: 0 10px;    
-  font-size: 14px;     
+  padding: 0 10px;
+  font-size: 14px;
+  cursor: pointer;
 
   transition:
     color 160ms ease,
@@ -127,31 +118,25 @@
     filter 160ms ease;
 }
 
-/* per-tab colors */
 .project-template .proj-nav__link:nth-child(1){ background: var(--band-about); }
 .project-template .proj-nav__link:nth-child(2){ background: var(--band-tech); }
 .project-template .proj-nav__link:nth-child(3){ background: var(--band-graph); }
 .project-template .proj-nav__link:nth-child(4){ background: var(--band-other); }
 
-/* hover: NO box resize (font-size unchanged) */
 .project-template .proj-nav__link:hover,
 .project-template .proj-nav__link:focus-visible{
   color: var(--maroon);
-  letter-spacing: .2em;   
+  letter-spacing: .2em;
   filter: brightness(0.97);
   font-weight: 500;
 }
 
-/* darker backgrounds on hover per tab */
 .project-template .proj-nav__link:nth-child(1):hover,
 .project-template .proj-nav__link:nth-child(1):focus-visible{ background: var(--band-about-h); }
-
 .project-template .proj-nav__link:nth-child(2):hover,
 .project-template .proj-nav__link:nth-child(2):focus-visible{ background: var(--band-tech-h); }
-
 .project-template .proj-nav__link:nth-child(3):hover,
 .project-template .proj-nav__link:nth-child(3):focus-visible{ background: var(--band-graph-h); }
-
 .project-template .proj-nav__link:nth-child(4):hover,
 .project-template .proj-nav__link:nth-child(4):focus-visible{ background: var(--band-other-h); }
 
@@ -160,22 +145,14 @@
   filter: brightness(0.92);
 }
 
-/* ========= BODY WRAPPER (offset for sticky bars) ========= */
+/* ========= BODY ========= */
 .project-template .proj-body{
-  padding: 18px;
+  padding: 24px 18px 18px 18px;
   display: grid;
   gap: 22px;
-
-  /* prevents content from hiding under sticky header/nav when using anchor jumps */
-  scroll-margin-top: calc(var(--proj-head-h) + var(--proj-nav-h) + 12px);
 }
 
-/* If your content appears under the sticky bars, add top padding */
-.project-template .proj-body{
-  padding-top: calc(18px + 6px);
-}
-
-/* ========= ROW 3: INTRODUCTION ========= */
+/* ========= ROW 3 ========= */
 .project-template .proj-row3{
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -202,7 +179,6 @@
   align-items: baseline;
 }
 
-/* colon like mock */
 .project-template .proj-meta dt{
   opacity: .75;
   position: relative;
@@ -218,16 +194,17 @@
   margin: 0;
 }
 
-/* ========= ROW 4: IMAGES GRID ========= */
+/* ========= ROW 4: GALLERY ========= */
+/* ========= ROW 4: GALLERY (restore original look) ========= */
 .project-template .proj-gallery{
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
 
   display: flex;
   flex-wrap: wrap;
   gap: 22px;
 
-  align-items: flex-start;   /* top aligned like your example */
+  align-items: flex-start;   /* top aligned */
   justify-content: flex-start;
 }
 
@@ -237,7 +214,7 @@
   flex: 0 1 auto;
   max-width: 100%;
 
-  background: #dedede;
+  background: transparent;   /* remove grey background */
   overflow: hidden;
 
   display: flex;
@@ -245,20 +222,46 @@
   justify-content: center;
 }
 
-/* Full image shown (no crop), ratio preserved */
+/* clickable wrapper should NOT force full width (keeps your old sizing behavior) */
+.project-template .proj-media-btn{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+
+  height: 100%;
+  width: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: zoom-in;
+}
+
+/* Full image shown (no crop), consistent height, ratio preserved */
 .project-template .proj-gallery__cell img,
 .project-template .proj-gallery__cell video,
 .project-template .proj-media{
   height: 100%;
-  width: auto;         
-  max-width: 100%;      
+  width: auto;
+  max-width: 100%;
   display: block;
 
-  object-fit: contain;  
+  object-fit: contain;
   object-position: center;
 }
 
+/* Responsive height tweak (same as before) */
+@media (max-width: 900px){
+  .project-template .proj-gallery__cell{
+    height: min(50vh, 280px);
+  }
+}
 
+
+/* ========= ROW 5 ========= */
 .project-template .proj-row5{
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -266,8 +269,246 @@
   align-items: start;
 }
 
-.project-template .proj-col{
-  min-width: 0;
+.project-template .proj-col{ min-width: 0; }
+
+/* ===== Rich content ===== */
+.project-template .proj-desc-section{ margin-bottom: 14px; }
+
+.project-template .proj-minihead{
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+
+.project-template .proj-desc{
+  line-height: 1.5;
+  margin: 0;
+}
+
+.project-template .proj-desc + .proj-desc{ margin-top: 12px; }
+
+.project-template .proj-bullets{
+  margin: 10px 0 0 18px;
+  padding: 0;
+}
+
+.project-template .proj-bullets li{ margin: 6px 0; }
+
+/* ===== Slider ===== */
+.project-template .proj-slider{ margin-top: 22px; }
+
+.project-template .slider-container{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.project-template .slider{
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.project-template .slide{
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-template .proj-slide-btn{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  cursor: zoom-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-template .proj-slide-media{
+  width: 100%;
+  height: auto;
+  max-height: 50vh;
+  object-fit: contain;
+  display: block;
+}
+
+.project-template .navigation-buttons{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.project-template .navigation-buttons .prev,
+.project-template .navigation-buttons .next{
+  pointer-events: auto;
+  border: none;
+  background: rgba(255,255,255,0.65);
+  color: var(--maroon);
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.project-template .navigation-buttons .prev:hover,
+.project-template .navigation-buttons .next:hover{
+  background: rgba(255,255,255,0.85);
+  transform: scale(1.03);
+}
+
+/* ===== YouTube ===== */
+.project-template .yt-wrap{
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #ddd;
+  overflow: hidden;
+}
+
+.project-template .yt-embed{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* ===== fullpage-stack (Past Work) ===== */
+.project-template[data-layout="fullpage-stack"] .proj-section--4{
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.project-template[data-layout="fullpage-stack"] .proj-gallery{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+
+  width: min(92vw, 1100px);
+  margin: 5vh auto;
+
+  box-shadow: 0 0 20px 1px rgba(51, 51, 51, .35);
+  overflow: hidden;
+  background: transparent;
+}
+
+.project-template[data-layout="fullpage-stack"] .proj-gallery__cell{
+  height: auto !important;
+  overflow: visible !important;
+  background: transparent;
+}
+
+.project-template[data-layout="fullpage-stack"] .proj-media-btn{
+  height: auto;
+  display: block;
+}
+
+.project-template[data-layout="fullpage-stack"] .proj-media{
+  width: 100% !important;
+  height: auto !important;
+  max-height: none;
+}
+
+/* References row */
+.project-template .proj-references{
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.project-template .proj-references a{
+  color: var(--maroon);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.project-template .proj-references a:hover{
+  color: var(--ink);
+  border-bottom-color: var(--maroon);
+}
+
+/* table styling */
+.project-template .proj-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.project-template .proj-table th,
+.project-template .proj-table td{
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 8px 10px;
+  vertical-align: top;
+}
+
+.project-template .proj-table th{
+  background: rgba(0,0,0,0.04);
+  text-align: left;
+}
+
+/* ===== Lightbox (portal) ===== */
+.lb-backdrop{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lb-content{
+  position: relative;
+  width: min(96vw, 1200px);
+  max-height: 92vh;
+}
+
+.lb-close{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.lb-media{
+  width: 100%;
+  max-height: 92vh;
+  display: block;
+  object-fit: contain;
+  background: transparent;
+}
+
+.lb-caption{
+  margin-top: 10px;
+  color: rgba(255,255,255,0.9);
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 /* ========= Responsive ========= */
@@ -295,19 +536,15 @@
     grid-template-columns: 1fr;
   }
 
- 
   .project-template .proj-gallery__cell{
     height: min(50vh, 280px);
   }
 
-
-.project-template .proj-row5{
+  .project-template .proj-row5{
     grid-template-columns: 1fr;
   }
-
 }
 
-/* ========= Accessibility: reduced motion ========= */
 @media (prefers-reduced-motion: reduce){
   .project-template .proj-nav__link{
     transition: none;
@@ -316,142 +553,5 @@
   .project-template .proj-nav__link:focus-visible{
     letter-spacing: normal;
     filter: none;
-  }
-  .project-template .proj-gallery{
-    grid-template-columns: 1fr;
-    grid-auto-rows: min(40vh, 240px);
-  }
-}
-
-/* ===== Row 5 rich content styling ===== */
-.project-template .proj-desc-section{
-  margin-bottom: 14px;
-}
-
-.project-template .proj-minihead{
-  margin: 0 0 8px 0;
-  font-size: 12px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--maroon);
-}
-
-.project-template .proj-desc{
-  margin: 0;
-  line-height: 1.35;
-}
-
-.project-template .proj-bullets{
-  margin: 10px 0 0 18px;
-  padding: 0;
-}
-
-.project-template .proj-bullets li{
-  margin: 6px 0;
-}
-
-.project-template .proj-subposters{
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-/* poster figures (no border/shadow) */
-.project-template .proj-poster{
-  margin: 0;
-}
-
-.project-template .proj-poster__img{
-  width: 100%;
-  height: auto;
-  display: block;
-  background: #dedede;
-}
-
-.project-template .proj-caption{
-  margin-top: 6px;
-  font-size: 12px;
-  opacity: .75;
-}
-
-/* main poster on the right */
-.project-template .proj-mainposter{
-  width: 100%;
-}
-
-/* ===== Slider section (scoped) ===== */
-.project-template .proj-slider{
-  margin-top: 22px;
-}
-
-.project-template .slider-container{
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px;
-}
-
-.project-template .slider{
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  will-change: transform;
-}
-
-.project-template .slide{
-  min-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.project-template .proj-slide-media{
-  width: 100%;
-  height: auto;
-  max-height: 50vh;
-  object-fit: contain;
-  display: block;
-}
-
-.project-template .navigation-buttons{
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  pointer-events: none; /* allows clicks only on buttons */
-}
-
-.project-template .navigation-buttons .prev,
-.project-template .navigation-buttons .next{
-  pointer-events: auto;
-  border: none;
-  background: rgba(255,255,255,0.65);
-  color: var(--maroon);
-  width: 44px;
-  height: 44px;
-  font-size: 20px;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: background-color 160ms ease, transform 160ms ease;
-}
-
-.project-template .navigation-buttons .prev:hover,
-.project-template .navigation-buttons .next:hover{
-  background: rgba(255,255,255,0.85);
-  transform: scale(1.03);
-}
-
-/* responsive: stack subposters */
-@media (max-width: 900px){
-  .project-template .proj-subposters{
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 520px){
-  .project-template .proj-gallery__cell{
-    height: min(50vh, 240px);
   }
 }

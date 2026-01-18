@@ -1,20 +1,24 @@
+// src/components/Media.jsx
 import React from "react";
 
-export default function Media({ item, autoPlay = false, className }) {
-  if (!item) return null;
-  if (item.type === "video") {
+export default function Media({ item, className, autoPlay = false }) {
+  if (!item?.src) return null;
+
+  const cls = className || "proj-media";
+  const type = item.type || "image";
+
+  if (type === "video") {
     return (
       <video
-        className={className}
+        className={cls}
         src={item.src}
-        poster={item.poster || undefined}
-        muted
-        loop
+        controls
+        autoPlay={autoPlay}
+        muted={autoPlay}
         playsInline
-        preload="metadata"
-        {...(autoPlay ? { autoPlay: true } : {})}
       />
     );
   }
-  return <img className={className} src={item.src} alt={item.alt || ""} loading="lazy" />;
+
+  return <img className={cls} src={item.src} alt={item.alt || ""} loading="lazy" />;
 }
