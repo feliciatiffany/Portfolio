@@ -1,0 +1,63 @@
+{
+  "categories": [
+    { "slug": "graphic", "title": "Graphic Designer", "role": "graphic" }
+  ],
+  "projects": [
+    {
+      "slug": "personal-logo-design",
+      "title": "Personal Logo Design",
+      "category": "graphic",
+      "num": 2024,
+      "label": "Branding",
+      "media": [
+        {
+          "type": "image",
+          "src": "/media/graphicdesign/idcard/idcard_mockup1.png",
+          "alt": "Personal logo preview"
+        }
+      ]
+    },
+    {
+      "slug": "greatest-dreamer",
+      "title": "I Am the Greatest Dreamer",
+      "category": "graphic",
+      "num": 2024,
+      "label": "Poster Design",
+      "media": [
+        {
+          "type": "image",
+          "src": "/media/graphicdesign/posterDreamer/finalLandscape.jpg",
+          "alt": "Greatest Dreamer poster"
+        }
+      ]
+    },
+    {
+      "slug": "book-indo",
+      "title": "Book Design: Indonesia",
+      "category": "graphic",
+      "num": 2024,
+      "label": "Book Design",
+      "media": [
+        {
+          "type": "image",
+          "src": "/media/graphicdesign/bookIndo/mock-01-front.png",
+          "alt": "Wonder of Indonesia cover"
+        }
+      ]
+    },
+    {
+      "slug": "past-2024",
+      "title": "Past Work (Before 2024)",
+      "category": "graphic",
+      "num": 0,
+      "label": "Archive",
+      "media": [
+        {
+          "type": "image",
+          "src": "/media/graphicdesign/past2024/page8.png",
+          "alt": "Past work cover"
+        }
+      ]
+    }
+  ]
+}

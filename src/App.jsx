@@ -5,7 +5,7 @@ import { Routes, Route, Link, useLocation } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import TechDesigner from "./pages/TechDesigner.jsx";
 import GraphicDesigner from "./pages/GraphicDesigner.jsx";
-import Anything from "./pages/Anything.jsx";
+import Others from "./pages/Others.jsx";
 import About from "./pages/About.jsx";
 import Category from "./pages/Category.jsx";
 import Project from "./pages/Project.jsx"; 
@@ -74,8 +74,8 @@ export default function App() {
         <Route path="/graphic" element={<GraphicDesigner />} />
         <Route path="/Graphic" element={<GraphicDesigner />} />
 
-        <Route path="/anything" element={<Anything />} />
-        <Route path="/Anything" element={<Anything />} />
+        <Route path="/others" element={<Others />} />
+        <Route path="/Others" element={<Others />} />
 
         <Route path="/about" element={<About />} />
         <Route path="/About" element={<About />} />

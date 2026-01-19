@@ -10,12 +10,29 @@ export default {
     tools: ["p5.js", "Arduino", "NeoPixel LEDs", "PIR Sensor", "WebSockets", "Installation"],
   },
 
-  // Row 3
+  // Render order (reorder freely)
+  sections: [
+    { kind: "intro" },
+
+    { kind: "youtube", title: "Project Video", videoIdPath: "youtube.videoId" },
+
+    { kind: "twoCol", leftPath: "descLeft", rightPath: "descRight" },
+
+    { kind: "media", title: "Gallery", layout: "gallery", itemsPath: "media" },
+
+    { kind: "media", title: "Mockups + Process", layout: "slider", itemsPath: "row6.items" },
+
+    { kind: "twoCol", leftPath: "row7.left", rightPath: "row7.right" },
+
+    { kind: "desc", dataPath: "row8.desc" },
+
+    { kind: "references", title: "References", itemsPath: "references" },
+  ],
+
   intro:
     "“Dialogue with the Wind” is an interactive installation that invites self-reflection through a responsive field of fiber-optic grass. " +
     "Participants speak honestly into the space; the installation responds through shifting color, ambient flow, and sound—turning private emotions into a gentle, sensory dialogue.",
 
-  // Row 4 (gallery grid)
   media: [
     { type: "image", src: "/media/techdesign/dialogue/dialogue_main.jpg", alt: "Main visual" },
     { type: "image", src: "/media/techdesign/dialogue/dialogue_2.JPG", alt: "Slide 2" },
@@ -36,7 +53,6 @@ export default {
     { type: "image", src: "/media/techdesign/dialogue/IMG_0619.JPG", alt: "Build photo 2" },
   ],
 
-  // Row 5 (2 columns)
   descLeft: {
     title: "Abstract",
     paragraphs: [
@@ -58,20 +74,8 @@ export default {
       "Grass as responsive medium — tactile + visual feedback for the speaker’s emotional energy.",
       "Self-confrontation through sound — replaying the participant’s words encourages reflection.",
     ],
-    subTitle: "Core Components",
-    table: {
-      headers: ["Component", "Functionality"],
-      rows: [
-        ["Microphone (Laptop / p5.js)", "Captures speech and converts it into amplitude data."],
-        ["PIR Motion Sensor", "Detects presence and movement in the space."],
-        ["Amplitude Analysis", "Estimates emotional intensity from voice energy."],
-        ["NeoPixel LEDs + Fiber-Optic Grass (Arduino)", "Color shifts based on voice + motion."],
-        ["Audio Playback", "Replays the user’s recorded words for reflection."],
-      ],
-    },
   },
 
-  // Row 6 (Slider + Video)
   row6: {
     title: "Mockups + Process",
     layout: "slider",
@@ -88,11 +92,105 @@ export default {
     ],
   },
 
+  row7: {
+    left: {
+      title: "Development Process",
+      sections: [
+        {
+          title: "Research & Conceptualization",
+          bullets: [
+            "Studying interactive installations & device art",
+            "Exploring mental health therapy techniques",
+            "Investigating materials such as fiber-optic strands and motion sensors",
+          ],
+        },
+        {
+          title: "Prototyping & Interaction Design",
+          bullets: [
+            "Neutral Entry – The installation begins in a calm, unresponsive state.",
+            "Dialogue & Expression – Users engage with prompts, triggering responses.",
+            "Self-Confrontation & Reflection – Replays the user’s words for introspection.",
+          ],
+        },
+      ],
+    },
+
+    right: {
+      title: "Technical Implementation + Testing",
+      sections: [
+        {
+          title: "Hardware (Interactive Features)",
+          table: {
+            headers: ["Component", "Functionality"],
+            rows: [
+              ["Microphone (Laptop/P5.js)", "Captures user speech and converts it into amplitude data."],
+              ["PIR Motion Sensor", "Detects user presence and movement within the space."],
+              ["Amplitude Analysis Algorithm", "Determines emotional intensity based on speech energy patterns."],
+              ["NeoPixel LED Strip & Fiber-Optic Grass (Arduino Controlled)", "Changes colors in response to voice energy and motion."],
+              ["Audio Playback System", "Replays user-recorded words for self-reflection."],
+              ["Final Reflection Prompt", "Encourages users to listen and process their emotions."],
+            ],
+          },
+        },
+        {
+          title: "Software & Programming",
+          bullets: [
+            "p5.js (JavaScript) – Controls UI and animation.",
+            "Arduino IDE & C++ – Handles sensor input and LED responsiveness.",
+            "WebSockets – Facilitates real-time communication.",
+          ],
+        },
+        {
+          title: "Refinement & User Testing",
+          bullets: ["Fine-tuning sensor sensitivity", "Calibrating LED transitions", "Enhancing audio feedback clarity"],
+        },
+      ],
+    },
+  },
 
   youtube: {
     title: "Project Video",
     videoId: "HuoycS263FM",
     url: "https://www.youtube.com/watch?v=HuoycS263FM",
+  },
+
+  row8: {
+    title: "Step-by-Step Interaction Flow",
+    desc: {
+      title: "Step-by-Step Interaction Flow",
+      sections: [
+        {
+          title: "Introduction & Activation",
+          paragraphs: [
+            "Users receive an introduction and abstract about the artwork. A neutral soundscape helps set a calming atmosphere.",
+          ],
+        },
+        {
+          title: "User Engagement & Reflection",
+          bullets: [
+            "Users speak aloud, touch, or interact with fiber-optic grass.",
+            "Inputs captured include voice recording, motion detection, and amplitude analysis.",
+          ],
+        },
+        {
+          title: "Data Processing & System Response",
+          bullets: ["Analyzes voice tone, motion activity, and silence.", "Adjusts real-time visual feedback and audio response."],
+        },
+        {
+          title: "Interactive Feedback & Visual Response",
+          paragraphs: [
+            "Output 1: Dynamic Color Feedback — Colors shift based on the user’s vocal input. Silent moments result in dimming effects.",
+            "Output 2: Story Retelling & Self-Reflection — The system replays recorded words, allowing users to hear their reflections.",
+          ],
+        },
+        {
+          title: "Reflection & Completion",
+          paragraphs: [
+            "Guides users toward self-acceptance. Participants can save their recorded story or let the system reset for the next user.",
+          ],
+        },
+      ],
+    },
   },
 
   references: [
@@ -102,6 +200,5 @@ export default {
     { label: "MENTAL Exhibition (ArtScience Museum)", href: "https://www.marinabaysands.com/museum/exhibitions/mental.html" },
     { label: "WHITEvoid – Fluidic (My Modern Met)", href: "https://mymodernmet.com/whitevoid-fluidic/" },
     { label: "Arduino Sound Level Meter & Spectrum Analyzer", href: "https://blog.yavilevich.com/2016/08/arduino-sound-level-meter-and-spectrum-analyzer/" },
-
   ],
 };

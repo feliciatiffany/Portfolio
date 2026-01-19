@@ -10,14 +10,30 @@ export default {
         tools: ["Unity", "MediaPipe", "Python", "C#", "Projection + Live Testing"],
     },
 
-    // Row 3 (Overview)
+    // Render order (reorder freely)
+    sections: [
+        { kind: "intro" },
+        { kind: "youtubes", title: "Full Project Demonstration", itemsPath: "youtubes" },
+        { kind: "media", title: "Documentation", layout: "slider", itemsPath: "row6.websiteScreens.media" },
+
+
+
+
+        { kind: "twoCol", leftPath: "descLeft", rightPath: "descRight" },
+        { kind: "media", title: "Posters + Gesture Guide", layout: "gallery", itemsPath: "media" },
+
+        { kind: "youtubes", title: "Videos", itemsPath: "row6.youtubes" },
+
+        { kind: "references", title: "References", itemsPath: "references" },
+    ],
+
     intro:
         "We Hear You is a gesture-based interactive experience that invites players into a soft, reflective landscape, where they can encounter the memories, thoughts, and quiet truths of people from different generations, occupations, and backgrounds.\n\n" +
         "“Leave a thought for someone you’ll never meet.”\n" +
         "“Sometimes, the first step is simply to listen.”",
 
-    // Row 4 (Poster + Guide)
-    // (Keep this smaller: highlight key artifacts here)
+    youtubes: [{ videoId: "1wj80nTQ0a4" }],
+
     media: [
         { type: "image", src: "/media/techdesign/wehearyou/poster_1@300x.png", alt: "Poster 1" },
         { type: "image", src: "/media/techdesign/wehearyou/poster_2@300x.png", alt: "Poster 2" },
@@ -26,8 +42,6 @@ export default {
         { type: "image", src: "/media/techdesign/wehearyou/guide@300x.png", alt: "Gesture Guide" },
     ],
 
-    // Row 5 (2 columns)
-    // Left = Issues & Concept, Right = Experience Description + Gesture Responses + Interaction
     descLeft: {
         title: "Issues Addressed & Concept",
         paragraphs: [
@@ -90,11 +104,8 @@ export default {
         ],
     },
 
-    // Row 6 (all documentation first, then videos)
     row6: {
         title: "Documentation + Videos",
-        
-
         websiteScreens: {
             title: "Documentation",
             layout: "slider",
@@ -122,48 +133,17 @@ export default {
                 { type: "image", src: "/media/techdesign/wehearyou/documentation21.jpeg", alt: "Documentation 21" },
             ],
         },
-
         youtubes: [
-            {
-                title: "Full Project Demonstration",
-                videoId: "1wj80nTQ0a4",
-            },
-            {
-                title: "Project Live Testing",
-                videoId: "nVtlClpfk0Y",
-            },
+            { title: "Project Live Testing", videoId: "nVtlClpfk0Y" },
         ],
     },
 
-    // NEW bottom row (References)
     references: [
-        {
-            label: "Reddit thread: MediaPipe handtracking driving game (Unity3D)",
-            href: "https://www.reddit.com/r/Unity3D/comments/16a726x/mediapipe_handtracking_driving_game/",
-        },
-        {
-            label: "homuler/MediaPipeUnityPlugin",
-            href: "https://github.com/homuler/MediaPipeUnityPlugin",
-        },
-        {
-            label: "Arham-Aalam/MediaPipeUnityPlugin (macOS notes)",
-            href: "https://github.com/Arham-Aalam/MediaPipeUnityPlugin?tab=readme-ov-file#macOS",
-        },
-
-        // added
-        {
-            label: "Handspew (Hugging Face Space) — tinazone",
-            href: "https://huggingface.co/spaces/tinazone/handspew",
-        },
-        {
-            label: "MediaPipe Hand Landmarker (official docs)",
-            href: "https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker",
-        },
-        {
-            label: "tina.zone — work page",
-            href: "https://www.tina.zone/work.html",
-        },
+        { label: "Reddit thread: MediaPipe handtracking driving game (Unity3D)", href: "https://www.reddit.com/r/Unity3D/comments/16a726x/mediapipe_handtracking_driving_game/" },
+        { label: "homuler/MediaPipeUnityPlugin", href: "https://github.com/homuler/MediaPipeUnityPlugin" },
+        { label: "Arham-Aalam/MediaPipeUnityPlugin (macOS notes)", href: "https://github.com/Arham-Aalam/MediaPipeUnityPlugin?tab=readme-ov-file#macOS" },
+        { label: "Handspew (Hugging Face Space) — tinazone", href: "https://huggingface.co/spaces/tinazone/handspew" },
+        { label: "MediaPipe Hand Landmarker (official docs)", href: "https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker" },
+        { label: "tina.zone — work page", href: "https://www.tina.zone/work.html" },
     ],
-
 };
-

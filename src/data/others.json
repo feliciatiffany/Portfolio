@@ -1,0 +1,21 @@
+{
+  "categories": [
+    { "slug": "others", "title": "Others", "role": "others" }
+  ],
+  "projects": [
+    {
+      "slug": "theTrueLight",
+      "title": "The True Light",
+      "category": "others",
+      "num": 2025,
+      "label": "Short Movie",
+      "media": [
+        {
+          "type": "video",
+          "src": "/media/others/theTrueLight/thumbnail_theTrueLight.mp4",
+          "alt": "The True Light"
+        }
+      ]
+    }
+  ]
+}

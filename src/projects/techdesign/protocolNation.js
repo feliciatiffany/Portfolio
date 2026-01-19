@@ -1,19 +1,36 @@
 // src/projects/techdesign/protocolNation.js
+
 export default {
   slug: "protocol-nation",
-  title: "Protocol Nation",
+  title: "Protocol Nation - Emerging Futures",
 
   meta: {
     category: ["Projection Mapping", "Website Design", "UI/UX", "Art Installation"],
     year: "2025",
-    tools: ["React", "CSS", "Scroll Snapping", "Figma", "YouTube Embed"],
+    tools: ["React", "Kantan: Touch Designer", "Figma", "Adobe Premiere Pro"],
   },
+
+  // Render order (reorder freely)
+  sections: [
+    { kind: "intro" },
+
+    { kind: "youtube", title: "Projection Mapping Demo", videoIdPath: "row6.youtube.videoId" },
+
+
+    { kind: "media", title: "Documentation", layout: "gallery", itemsPath: "media" },
+
+    { kind: "twoCol", leftPath: "descLeft", rightPath: "descRight" },
+
+    { kind: "media", title: "Website Screens", layout: "slider", itemsPath: "row6.websiteScreens.media" },
+
+
+    { kind: "references", title: "References", itemsPath: "references" },
+  ],
 
   intro:
     "This project explores how current social phenomena and emerging technologies might evolve, using design to extrapolate a plausible future scenario. The timeframe is intentionally open-ended, allowing the work to extend as far into the future as needed to support the concept.\n\n" +
     "The goal is to design a fully formed “world”—a coherent system that can immerse an audience through conceptual worlding. Rather than focusing only on individual tools, interfaces, or prototypes, the project emphasizes the broader networks those artifacts belong to: the relationships, infrastructures, behaviors, and rules that make the world function as a living ecosystem.",
 
-  // Row 4
   media: [
     { type: "image", src: "/media/techdesign/protocolNation/documentation1.JPG", alt: "Documentation 1" },
     { type: "image", src: "/media/techdesign/protocolNation/documentation2.JPG", alt: "Documentation 2" },
@@ -23,7 +40,6 @@ export default {
     { type: "image", src: "/media/techdesign/protocolNation/documentation6.JPG", alt: "Documentation 6" },
   ],
 
-  // Row 5 (2 columns)
   descLeft: {
     title: "Project Abstract",
     paragraphs: [
@@ -35,7 +51,6 @@ export default {
     ],
   },
 
-  // ✅ Row 5 right: use sections so you can have multiple titles
   descRight: {
     sections: [
       {
@@ -61,75 +76,39 @@ export default {
     ],
   },
 
-  // ✅ Row 6: split into TWO blocks
   row6: {
-   
-  websiteScreens: {
-    title: "Website Screens",
-    layout: "slider",
-    media: [
-      { type: "image", src: "/media/techdesign/protocolNation/website1.png", alt: "Website 1" },
-      { type: "image", src: "/media/techdesign/protocolNation/website2.png", alt: "Website 2" },
-      { type: "image", src: "/media/techdesign/protocolNation/website3.png", alt: "Website 3" },
-      { type: "image", src: "/media/techdesign/protocolNation/website4.png", alt: "Website 4" },
-      { type: "image", src: "/media/techdesign/protocolNation/website5.png", alt: "Website 5" },
-      { type: "image", src: "/media/techdesign/protocolNation/website6.png", alt: "Website 6" },
-      { type: "image", src: "/media/techdesign/protocolNation/website7.png", alt: "Website 7" },
-    ],
+    websiteScreens: {
+      title: "Website Screens",
+      layout: "slider",
+      media: [
+        { type: "image", src: "/media/techdesign/protocolNation/website1.png", alt: "Website 1" },
+        { type: "image", src: "/media/techdesign/protocolNation/website2.png", alt: "Website 2" },
+        { type: "image", src: "/media/techdesign/protocolNation/website3.png", alt: "Website 3" },
+        { type: "image", src: "/media/techdesign/protocolNation/website4.png", alt: "Website 4" },
+        { type: "image", src: "/media/techdesign/protocolNation/website5.png", alt: "Website 5" },
+        { type: "image", src: "/media/techdesign/protocolNation/website6.png", alt: "Website 6" },
+        { type: "image", src: "/media/techdesign/protocolNation/website7.png", alt: "Website 7" },
+      ],
+    },
+
+    youtube: {
+      title: "Projection Mapping Demo",
+      videoId: "gt0YIVi72z4",
+      url: "https://www.youtube.com/watch?v=gt0YIVi72z4",
+    },
   },
 
-  youtube: {
-    title: "Projection Mapping Demo",
-    videoId: "gt0YIVi72z4",
-    url: "https://www.youtube.com/watch?v=gt0YIVi72z4",
-  },
-  },
-
-    references: [
-    {
-      label: "Introducing Scrollama — The Pudding",
-      href: "https://pudding.cool/process/introducing-scrollama/",
-    },
-    {
-      label: "My 2020 in Data (so far) — Giorgia Lupi",
-      href: "https://giorgialupi.com/my-2020-in-data-so-far",
-    },
-    {
-      label: "Data Viz Project",
-      href: "https://datavizproject.com/",
-    },
-    {
-      label: "Scrollytelling on Steroids with Scroll State Queries — CSS-Tricks",
-      href: "https://css-tricks.com/scrollytelling-on-steroids-with-scroll-state-queries/",
-    },
-    {
-      label: "scrollyvideo.js",
-      href: "https://scrollyvideo.js.org/",
-    },
-    {
-      label: "ScrollyTeller — IHME UW",
-      href: "https://ihmeuw.github.io/ScrollyTeller/",
-    },
-    {
-      label: "Speculative Biologies (2008) — Pinar Yoldas",
-      href: "https://www.pinaryoldas.info/WORK/Speculative-Biologies-2008",
-    },
-    {
-      label: "Ecosystem of Excess (2014) — Pinar Yoldas",
-      href: "https://www.pinaryoldas.info/WORK/Ecosystem-of-Excess-2014",
-    },
-    {
-      label: "99¢ Futures (2013) — Extrapolation Factory",
-      href: "https://extrapolationfactory.com/99-Futures",
-    },
-    {
-      label: "Not The Only One (2018) — Stephanie Dinkins",
-      href: "https://www.stephaniedinkins.com/ntoo.html",
-    },
-    {
-      label: "The Anthropocene Cookbook (2022) — Zane Cerpina & Stahl Stenslie",
-      href: "https://anthropocenecookbook.com/chapters/",
-    },
+  references: [
+    { label: "Introducing Scrollama — The Pudding", href: "https://pudding.cool/process/introducing-scrollama/" },
+    { label: "My 2020 in Data (so far) — Giorgia Lupi", href: "https://giorgialupi.com/my-2020-in-data-so-far" },
+    { label: "Data Viz Project", href: "https://datavizproject.com/" },
+    { label: "Scrollytelling on Steroids with Scroll State Queries — CSS-Tricks", href: "https://css-tricks.com/scrollytelling-on-steroids-with-scroll-state-queries/" },
+    { label: "scrollyvideo.js", href: "https://scrollyvideo.js.org/" },
+    { label: "ScrollyTeller — IHME UW", href: "https://ihmeuw.github.io/ScrollyTeller/" },
+    { label: "Speculative Biologies (2008) — Pinar Yoldas", href: "https://www.pinaryoldas.info/WORK/Speculative-Biologies-2008" },
+    { label: "Ecosystem of Excess (2014) — Pinar Yoldas", href: "https://www.pinaryoldas.info/WORK/Ecosystem-of-Excess-2014" },
+    { label: "99¢ Futures (2013) — Extrapolation Factory", href: "https://extrapolationfactory.com/99-Futures" },
+    { label: "Not The Only One (2018) — Stephanie Dinkins", href: "https://www.stephaniedinkins.com/ntoo.html" },
+    { label: "The Anthropocene Cookbook (2022) — Zane Cerpina & Stahl Stenslie", href: "https://anthropocenecookbook.com/chapters/" },
   ],
-
 };

@@ -41,7 +41,7 @@
   height: var(--proj-head-h);
 
   display: grid;
-  grid-template-columns: auto 2fr 1fr;
+  grid-template-columns: auto 1fr 1fr;
   align-items: center;
   gap: 12px;
 
@@ -195,7 +195,6 @@
 }
 
 /* ========= ROW 4: GALLERY ========= */
-/* ========= ROW 4: GALLERY (restore original look) ========= */
 .project-template .proj-gallery{
   width: 100%;
   max-width: 100%;

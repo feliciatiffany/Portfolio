@@ -1,0 +1,81 @@
+{
+    "categories": [
+        {
+            "slug": "tech",
+            "title": "Tech Designer",
+            "role": "tech"
+        }
+    ],
+    "projects": [
+        {
+            "slug": "protocol-nation",
+            "title": "Protocol Nation",
+            "category": "tech",
+            "num": 2025,
+            "label": "Projection Mapping + React",
+            "media": [
+                {
+                    "type": "video",
+                    "src": "/media/techdesign/protocolNation/thumbnail.mp4",
+                    "alt": "Protocol Nation"
+                }
+            ]
+        },
+        {
+            "slug": "wehearyou",
+            "title": "We Hear You",
+            "category": "tech",
+            "num": 2025,
+            "label": "Unity + UX",
+            "media": [
+                {
+                    "type": "video",
+                    "src": "/media/techdesign/wehearyou/wehearyou_thumbnail.mp4",
+                    "alt": "We Hear You"
+                }
+            ]
+        },
+        {
+            "slug": "unseen-city",
+            "title": "Seeing The Unseen City",
+            "category": "tech",
+            "num": 2025,
+            "label": "Data Visualization",
+            "media": [
+                {
+                    "type": "image",
+                    "src": "/media/techdesign/unseenCity/documentation1.png",
+                    "alt": "Unseen City preview"
+                }
+            ]
+        },
+        {
+            "slug": "dialogue-with-the-wind",
+            "title": "Dialogue with the Wind",
+            "category": "tech",
+            "num": 2024,
+            "label": "Interactive Installation",
+            "media": [
+                {
+                    "type": "image",
+                    "src": "/media/techdesign/dialogue/dialogue_main.jpg",
+                    "alt": "Dialogue with the Wind preview"
+                }
+            ]
+        },
+        {
+            "slug": "rube-goldberg",
+            "title": "Indonesian Café ",
+            "category": "tech",
+            "num": 2025,
+            "label": "Unity:Rube Goldberg",
+            "media": [
+                {
+                    "type": "video",
+                    "src": "/media/techdesign/rubeGoldberg/Thumbnail%20vid.mp4",
+                    "alt": "Rube Goldberg Café"
+                }
+            ]
+        }
+    ]
+}

@@ -78,7 +78,7 @@ export default function GraphicDesigner() {
             <Link to="/graphic" className="grow-band is-current" data-role="graphic">graphic designer</Link>
             <span className="comma">,</span>{" "}
             <span className="mono">and I create </span>{" "}
-            <Link to="/anything" className="grow-band" data-role="anything">solutions</Link>
+            <Link to="/others" className="grow-band" data-role="others">solutions</Link>
           </span>
         </p>
       </section>

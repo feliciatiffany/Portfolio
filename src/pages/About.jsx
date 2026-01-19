@@ -39,7 +39,7 @@ export default function About() {
             </Link>
             <span className="comma">,</span>{" "}
             <span className="mono">and I create </span>{" "}
-            <Link to="/anything" className="grow-band" data-role="anything">
+            <Link to="/others" className="grow-band" data-role="others">
               solutions
             </Link>
           </span>

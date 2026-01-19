@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ProjectTemplate from "../components/ProjectTemplate.jsx";
 import { getProject } from "../lib/projects.js";
 
-// Load all per-project detail files: src/projects/**/<anything>.js
+// Load all per-project detail files: src/projects/**/<others>.js
 const modules = import.meta.glob("../projects/**/*.js", { eager: true });
 
 // Build { slug -> detailData }
