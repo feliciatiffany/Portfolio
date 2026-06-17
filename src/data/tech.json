@@ -22,6 +22,14 @@
             ]
         },
         {
+            "slug": "nycresistor",
+            "title": "@nycresistor",
+            "category": "tech",
+            "num": 2026,
+            "label": "DJ/VJ Performance",
+            "media": []
+        },
+        {
             "slug": "tracing-dendur",
             "title": "Tracing Dendur",
             "category": "tech",
