@@ -8,6 +8,16 @@
     ],
     "projects": [
         {
+            "slug": "touchdesigner-av",
+            "title": "TouchDesigner A/V",
+            "category": "tech",
+            "num": 2026,
+            "label": "TouchDesigner",
+            "media": []
+        },
+        
+
+        {
             "slug": "tell-ai",
             "title": "TellAI",
             "category": "tech",
@@ -42,20 +52,6 @@
                     "alt": "Tracing Dendur"
                 }
             ]
-        },
-        {
-            "slug": "tdvj",
-            "title": "Decibel",
-            "category": "tech",
-            "num": 2026,
-            "label": "DJ/VJ",
-            "media": [
-                {
-                    "type": "video",
-                    "src": "/media/techdesign/tdvj/thumbnail_tdvj.mp4",
-                    "alt": "Audio-reactive DJ/VJ Album Art"
-                }
-            ]
         },{
             "slug": "blossom",
             "title": "Out-of-Place Blossom",
@@ -67,19 +63,6 @@
                     "type": "video",
                     "src": "/media/techdesign/blossom/thumbnail_blossom.mp4",
                     "alt": "3D Environment Design and Modeling"
-                }
-            ]
-        },{
-            "slug": "ThunderTD",
-            "title": "Thunder VJ ",
-            "category": "tech",
-            "num": 2026,
-            "label": "TouchDesigner",
-            "media": [
-                {
-                    "type": "video",
-                    "src": "/media/techdesign/thunder/documentation trim.mov",
-                    "alt": "Lighting TouchDesigner Visuals"
                 }
             ]
         },

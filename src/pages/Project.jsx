@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProjectTemplate from "../components/ProjectTemplate.jsx";
 import { getProject } from "../lib/projects.js";
@@ -24,7 +24,19 @@ export default function Project() {
   // detail data from src/projects/**/<slug>.js (intro, descLeft/right, full media)
   const detail = DETAIL[slug];
 
+  // Redirect to external link if present
+  useEffect(() => {
+    if (detail?.externalLink) {
+      window.location.href = detail.externalLink;
+    }
+  }, [detail?.externalLink]);
+
   if (!base && !detail) return <p style={{ padding: 24 }}>Project not found.</p>;
+
+  // If external link exists, show loading and redirect
+  if (detail?.externalLink) {
+    return <p style={{ padding: 24 }}>Redirecting...</p>;
+  }
 
   // Merge (detail overrides base)
   const project = {
